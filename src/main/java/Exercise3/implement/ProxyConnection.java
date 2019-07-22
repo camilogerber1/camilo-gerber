@@ -4,24 +4,22 @@ import Exercise3.Interface.ConnectionInterface;
 
 public class ProxyConnection implements ConnectionInterface {
 
+  private ConnectionImplementation RealConnection;
 
-   private ConnectionImplementation RealConnection;
+  public void ConnectToServer(DatabaseConnection conn) {
 
+	if (RealConnection == null)
+	  RealConnection = new ConnectionImplementation();
 
-    public void ConnectToServer(DatabaseConnection conn) {
+	RealConnection.ConnectToServer(conn);
 
-        if (RealConnection == null) RealConnection = new ConnectionImplementation();
+  }
 
-        RealConnection.ConnectToServer(conn);
+  public void DisconnectFromServer(DatabaseConnection conn) {
 
+	if (RealConnection == null)
+	  RealConnection = new ConnectionImplementation();
 
-    }
-
-
-    public void DisconnectFromServer(DatabaseConnection conn) {
-
-        if (RealConnection == null) RealConnection = new ConnectionImplementation();
-
-        RealConnection.DisconnectFromServer(conn);
-    }
+	RealConnection.DisconnectFromServer(conn);
+  }
 }

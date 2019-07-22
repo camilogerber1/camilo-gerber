@@ -6,10 +6,11 @@ import Exercise2.interfaces.AbstractFactory;
 
 public class FactoryMaker {
 
-    public static AbstractFactory getFactory(String factory){
+  public static AbstractFactory getFactory(String factory) {
 
-        if (factory.equalsIgnoreCase("DB")) return new DBConnection();
+	if (factory.equalsIgnoreCase("DB"))
+	  return new DBConnection();
 
-        return null;
-    }
+	return null;
+  }
 }

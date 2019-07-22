@@ -2,24 +2,23 @@ package Exercise3.implement;
 
 public class DatabaseConnection {
 
+  private boolean state;
 
-    private boolean state;
+  public String isState() { //TRANSFORM BOOLEAN VALUE INTO A STRING
 
-    public String isState() { //TRANSFORM BOOLEAN VALUE INTO A STRING
+	String temp = "";
 
-        String temp = "";
+	if (state) {
+	  return temp = "Connected";
+	} else {
 
-        if (state) {
-            return temp = "Connected";
-        } else {
+	  temp = "Disconnected";
+	}
 
-            temp = "Disconnected";
-        }
+	return temp;
+  }
 
-        return temp;
-    }
-
-    public void setState(boolean state) { // SET STATE TRUE OR FALSE
-        this.state = state;
-    }
+  public void setState(boolean state) { // SET STATE TRUE OR FALSE
+	this.state = state;
+  }
 }

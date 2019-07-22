@@ -6,15 +6,14 @@ import Exercise2.interfaces.DBinterface;
 
 public class voidConnection implements DBinterface {
 
+  public void connect() {
 
-    public void connect(){
+	System.out.println("ERROR: Provider void/invalid argument");
+  }
 
-        System.out.println("ERROR: Provider void/invalid argument");
-    }
+  public void disconnect() {
 
-    public void disconnect(){
-
-        System.out.println("ERROR: Provider void/invalid argument");
-    }
+	System.out.println("ERROR: Provider void/invalid argument");
+  }
 
 }

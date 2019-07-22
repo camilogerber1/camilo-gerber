@@ -11,32 +11,30 @@ AUTHOR: CAMILO GERBER
 
 public class ConnectionBuilder {
 
-    private String user;
-    private String pass;
-    private String server;
+  private String user;
+  private String pass;
+  private String server;
 
+  public ConnectionBuilder setUser(String user) {
+	this.user = user;
 
-    public ConnectionBuilder setUser(String user) {
-        this.user = user;
+	return this;
+  }
 
-        return this;
-    }
+  public ConnectionBuilder setPass(String pass) {
+	this.pass = pass;
 
-    public ConnectionBuilder setPass(String pass) {
-        this.pass = pass;
+	return this;
+  }
 
-        return this;
-    }
+  public ConnectionBuilder setServer(String server) {
+	this.server = server;
 
-    public ConnectionBuilder setServer(String server) {
-        this.server = server;
+	return this;
+  }
 
-        return this;
-    }
+  public ConnectionDB getConnection() {
 
-
-    public ConnectionDB getConnection (){
-
-        return new ConnectionDB(user,pass,server);
-    }
+	return new ConnectionDB(user, pass, server);
+  }
 }

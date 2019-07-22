@@ -2,9 +2,8 @@ package Exercise2.interfaces;
 
 public interface DBinterface {
 
-    void connect();
+  void connect();
 
-    void disconnect();
-
+  void disconnect();
 
 }

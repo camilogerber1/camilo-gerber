@@ -4,10 +4,8 @@ import Exercise3.implement.DatabaseConnection;
 
 public interface ConnectionInterface {
 
+  void ConnectToServer(DatabaseConnection conn);
 
-    void ConnectToServer (DatabaseConnection conn);
-    void DisconnectFromServer(DatabaseConnection conn);
-
-
+  void DisconnectFromServer(DatabaseConnection conn);
 
 }

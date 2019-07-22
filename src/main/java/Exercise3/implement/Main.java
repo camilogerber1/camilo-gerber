@@ -14,29 +14,26 @@ AUTHOR: CAMILO GERBER
 
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
+	DatabaseConnection c = new DatabaseConnection();
 
-        DatabaseConnection c = new DatabaseConnection();
+	ConnectionInterface proxy = new ProxyConnection(); //PROXY OBJECT
 
-        ConnectionInterface proxy = new ProxyConnection(); //PROXY OBJECT
+	// TESTS
 
-        // TESTS
+	//TEST CONNECT
+	System.out.println("Testing connection...");
 
-        //TEST CONNECT
-        System.out.println("Testing connection...");
+	proxy.ConnectToServer(c);
 
-        proxy.ConnectToServer(c);
+	System.out.println("Server status: " + c.isState());
 
-        System.out.println("Server status: " + c.isState());
+	//TEST DISCONNECT
 
+	System.out.println("Testing disconnection...");
+	proxy.DisconnectFromServer(c);
 
-
-        //TEST DISCONNECT
-
-        System.out.println("Testing disconnection...");
-        proxy.DisconnectFromServer(c);
-
-        System.out.println("Server status: " + c.isState());
-    }
+	System.out.println("Server status: " + c.isState());
+  }
 }
