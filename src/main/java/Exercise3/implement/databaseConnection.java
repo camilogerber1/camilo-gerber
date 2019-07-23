@@ -1,20 +1,15 @@
 package Exercise3.implement;
 
-public class DatabaseConnection {
-
+public class databaseConnection {
   private boolean state;
 
   public String isState() { //TRANSFORM BOOLEAN VALUE INTO A STRING
-
 	String temp = "";
-
 	if (state) {
 	  return temp = "Connected";
 	} else {
-
 	  temp = "Disconnected";
 	}
-
 	return temp;
   }
 

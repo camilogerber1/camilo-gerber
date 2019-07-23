@@ -4,25 +4,18 @@ package Exercise1;/*  TOPIC 0 - ACTIVITY 1
     author: Camilo Gerber
  */
 
-public class ConnectionSingleton {
-
-  private ConnectionSingleton() {
-
+public class connectionSingleton {
+  private connectionSingleton() {
 	System.out.println("Connected successfully");
-
   }
 
   private static class Connection {
-
-	static final ConnectionSingleton conn = new ConnectionSingleton(); //Initialization-on-demand
+	static final connectionSingleton conn = new connectionSingleton(); //Initialization-on-demand
   }
 
-  public static ConnectionSingleton getInstance() {
-
+  public static connectionSingleton getInstance() {
 	return Connection.conn;
-
   }
-
 }
 
 

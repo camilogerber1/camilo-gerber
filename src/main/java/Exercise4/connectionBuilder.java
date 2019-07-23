@@ -9,32 +9,27 @@ AUTHOR: CAMILO GERBER
 
  */
 
-public class ConnectionBuilder {
-
+public class connectionBuilder {
   private String user;
   private String pass;
   private String server;
 
-  public ConnectionBuilder setUser(String user) {
+  public connectionBuilder setUser(String user) {
 	this.user = user;
-
 	return this;
   }
 
-  public ConnectionBuilder setPass(String pass) {
+  public connectionBuilder setPass(String pass) {
 	this.pass = pass;
-
 	return this;
   }
 
-  public ConnectionBuilder setServer(String server) {
+  public connectionBuilder setServer(String server) {
 	this.server = server;
-
 	return this;
   }
 
-  public ConnectionDB getConnection() {
-
-	return new ConnectionDB(user, pass, server);
+  public connectionDB getConnection() {
+	return new connectionDB(user, pass, server);
   }
 }
