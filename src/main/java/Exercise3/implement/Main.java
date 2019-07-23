@@ -1,6 +1,6 @@
 package Exercise3.implement;
 
-import Exercise3.Interface.connectionInterface;
+import Exercise3.Interface.ConnectionInterface;
 
 
 /*
@@ -14,16 +14,16 @@ AUTHOR: CAMILO GERBER
 
 public class Main {
   public static void main(String[] args) {
-	databaseConnection c = new databaseConnection();
-	connectionInterface proxy = new proxyConnection(); //PROXY OBJECT
+	DatabaseConnection c = new DatabaseConnection();
+	ConnectionInterface proxy = new ProxyConnection(); //PROXY OBJECT
 	// TESTS
 	//TEST CONNECT
 	System.out.println("Testing connection...");
-	proxy.ConnectToServer(c);
+	proxy.connectToServer(c);
 	System.out.println("Server status: " + c.isState());
 	//TEST DISCONNECT
 	System.out.println("Testing disconnection...");
-	proxy.DisconnectFromServer(c);
+	proxy.disconnectFromServer(c);
 	System.out.println("Server status: " + c.isState());
   }
 }

@@ -1,14 +1,14 @@
 package Exercise2.implementations;
 
-import Exercise2.interfaces.dbInterface;
+import Exercise2.interfaces.DbInterface;
 //Generates a new ORACLE DB connection
 
-public class oracleConnection implements dbInterface {
+public class OracleConnection implements DbInterface {
   private String server;
   private String usr;
   private String pass;
 
-  public oracleConnection() {
+  public OracleConnection() {
 	this.server = "oracle.server.com";
 	this.usr = "ROOT-ORACLE";
 	this.pass = "1234";

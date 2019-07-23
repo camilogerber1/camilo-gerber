@@ -1,14 +1,14 @@
 package Exercise2.implementations;
 
-import Exercise2.interfaces.dbInterface;
+import Exercise2.interfaces.DbInterface;
 
 //Generates a new POSTGREE connection
-public class postgreeConnection implements dbInterface {
+public class PostgreeConnection implements DbInterface {
   private String server;
   private String usr;
   private String pass;
 
-  public postgreeConnection() {
+  public PostgreeConnection() {
 	this.server = "postgree.server.com";
 	this.usr = "POSTGREE-ROOT";
 	this.pass = "1234";

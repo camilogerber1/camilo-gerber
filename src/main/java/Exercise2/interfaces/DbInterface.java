@@ -1,6 +1,6 @@
 package Exercise2.interfaces;
 
-public interface dbInterface {
+public interface DbInterface {
   void connect();
 
   void disconnect();

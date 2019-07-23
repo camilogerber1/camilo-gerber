@@ -1,6 +1,6 @@
 package Exercise3.implement;
 
-public class databaseConnection {
+public class DatabaseConnection {
   private boolean state;
 
   public String isState() { //TRANSFORM BOOLEAN VALUE INTO A STRING

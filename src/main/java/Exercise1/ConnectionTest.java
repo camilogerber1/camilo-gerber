@@ -1,11 +1,11 @@
 package Exercise1;
 
-public class connectionTest {
+public class ConnectionTest {
   public static void main(String[] args) {
-	connectionSingleton sampleConn;
+	ConnectionSingleton sampleConn;
 	//For loop for trying to connect more than once
 	for (int c = 0; c < 5; c++) {
-	  connectionSingleton.getInstance();
+	  ConnectionSingleton.getInstance();
 	}
 
   }

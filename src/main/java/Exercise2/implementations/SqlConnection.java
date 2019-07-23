@@ -1,14 +1,14 @@
 package Exercise2.implementations;
 
-import Exercise2.interfaces.dbInterface;
+import Exercise2.interfaces.DbInterface;
 //Generates a new MYSQL connection
 
-public class sqlConnection implements dbInterface {
+public class SqlConnection implements DbInterface {
   private String server;
   private String usr;
   private String pass;
 
-  public sqlConnection() {
+  public SqlConnection() {
 	this.server = "mysql.server.com";
 	this.usr = "ROOT-MYSQL";
 	this.pass = "1234";
