@@ -5,20 +5,12 @@
 -- Host: localhost
 -- Generation Time: Jul 30, 2019 at 10:01 AM
 -- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Database: `high-school`
 --
 
@@ -31,7 +23,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
   `name` varchar(10) NOT NULL,
-  `teacher` int(11) NOT NULL
+  `teacher` int(11) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (`teacher`) REFERENCES `teacher` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -51,7 +45,8 @@ INSERT INTO `course` (`id`, `name`, `teacher`) VALUES
 
 CREATE TABLE `days` (
   `id` int(11) NOT NULL,
-  `name` varchar(10) NOT NULL
+  `name` varchar(10) NOT NULL,
+    PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -80,7 +75,10 @@ CREATE TABLE `notes` (
   `par3` int(11) NOT NULL,
   `final` int(11) NOT NULL,
   `student` int(11) NOT NULL,
-  `course` int(11) NOT NULL
+  `course` int(11) NOT NULL,
+    PRIMARY KEY (id),
+   FOREIGN KEY (`course`) REFERENCES `course` (`id`),
+    FOREIGN KEY (`student`) REFERENCES `student` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -130,7 +128,8 @@ CREATE TABLE `student` (
   `name` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
   `regNumber` int(11) NOT NULL,
-  `birthDate` date NOT NULL
+  `birthDate` date NOT NULL,
+    PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -159,7 +158,8 @@ CREATE TABLE `teacher` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
-  `birthDate` date NOT NULL
+  `birthDate` date NOT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -182,7 +182,10 @@ CREATE TABLE `weekSchedule` (
   `course` int(11) NOT NULL,
   `startTime` time NOT NULL,
   `finishTime` time NOT NULL,
-  `day` int(1) NOT NULL
+  `day` int(1) NOT NULL,
+    PRIMARY KEY (id),
+  FOREIGN KEY (`course`) REFERENCES `course` (`id`),
+  FOREIGN KEY (`day`) REFERENCES `days` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -205,13 +208,7 @@ ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
   ADD KEY `teacher-relation` (`teacher`);
 
---
--- Indexes for table `days`
---
-ALTER TABLE `days`
-  ADD PRIMARY KEY (`id`);
 
---
 -- Indexes for table `notes`
 --
 ALTER TABLE `notes`
@@ -219,19 +216,7 @@ ALTER TABLE `notes`
   ADD KEY `courseRelation` (`course`),
   ADD KEY `studentRelation` (`student`);
 
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `teacher`
---
-ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `weekSchedule`
 --
 ALTER TABLE `weekSchedule`
@@ -279,34 +264,6 @@ ALTER TABLE `teacher`
 ALTER TABLE `weekSchedule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `course`
---
-ALTER TABLE `course`
-  ADD CONSTRAINT `teacher-relation` FOREIGN KEY (`teacher`) REFERENCES `teacher` (`id`);
-
---
--- Constraints for table `notes`
---
-ALTER TABLE `notes`
-  ADD CONSTRAINT `courseRelation` FOREIGN KEY (`course`) REFERENCES `course` (`id`),
-  ADD CONSTRAINT `studentRelation` FOREIGN KEY (`student`) REFERENCES `student` (`id`);
-
---
--- Constraints for table `weekSchedule`
---
-ALTER TABLE `weekSchedule`
-  ADD CONSTRAINT `cRel` FOREIGN KEY (`course`) REFERENCES `course` (`id`),
-  ADD CONSTRAINT `dayRel` FOREIGN KEY (`day`) REFERENCES `days` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
 /*QUERY 1 - List students and teachers for a given course.*/
