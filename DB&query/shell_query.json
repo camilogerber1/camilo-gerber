@@ -1,0 +1,5 @@
+//QUERY 1
+
+//Fetch all students whose notes in a specific course were greater than 4.
+
+db.students.find({"courses.name": "Physics","courses.notes.finalNote":{ $gt: 4}});

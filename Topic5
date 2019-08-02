@@ -1,0 +1,24 @@
+//TOPIC 5
+
+1. Using the same SQL-MySql data model, map it to the corresponding database, collections, and documents.
+
+
+db.students.insert(
+
+{
+name: "Camilo",
+lastName: "Gerber,
+birth: new Date(1997,5,4),
+course: [{
+name: "Chemistry", 
+teacher: {name: "Pedro",lastName:"Quiroga", birth: new Date(1990,4,3)},
+notes: {par1: 4, par2: 5, par3: 6, final: 10}
+},
+{name: "Physics", teacher: {name: "Julio", lastName: "Suarez",birth: new Date(1983,3,4)},
+notes: {par1: 5, par2: 6, par3: 8, final: 9}
+},
+{name: "Math", teacher: {name: "Miguel", lastName: "Ito",birth: new Date(1970,8,4)},
+notes: {par1: 5, par2: 4, par3: 9, final: 9}
+
+}
+]})
