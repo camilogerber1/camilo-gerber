@@ -1,5 +1,4 @@
 target/*
 .idea/*
-topic5.iml
-.DS_Store/*
-topic5-morphia-addstudent.java
+topic5definitive.iml
+.DS_Store
